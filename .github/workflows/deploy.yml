@@ -24,4 +24,4 @@ jobs:
           npm run build
 
       - name: Docker Images bauen
-        run: docker-compose build
+        run: docker compose build
