@@ -6,7 +6,7 @@ import { ref, onMounted } from "vue";
 const message = ref("");
 
 onMounted(async () => {
-  const res = await fetch("http://localhost:5000/api");
+  const res = await fetch("https://ci-cd-deployment-pj52.onrender.com/api");
   const data = await res.json();
   message.value = data.message;
 });
