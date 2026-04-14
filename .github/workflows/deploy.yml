@@ -1,0 +1,27 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v3
+
+      - name: Backend installieren
+        run: |
+          cd backend
+          npm install
+
+      - name: Frontend installieren & build
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
+      - name: Docker Images bauen
+        run: docker-compose build
